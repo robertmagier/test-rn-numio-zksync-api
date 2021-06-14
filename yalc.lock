@@ -1,0 +1,11 @@
+{
+  "version": "v1",
+  "packages": {
+    "@teamnumio/numio-zksync-api": {
+      "version": "1.0.32",
+      "signature": "45d4ffd87692e0187cc7991cd58db2fd",
+      "file": true,
+      "replaced": "^1.0.30"
+    }
+  }
+}

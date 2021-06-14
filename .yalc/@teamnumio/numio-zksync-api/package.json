@@ -1,0 +1,61 @@
+{
+    "directories": {
+        "lib": "lib",
+        "test": "__tests__"
+    },
+    "files": [
+        "lib/**/*",
+        "src/**/*"
+    ],
+    "dependencies": {
+        "@ethersproject/shims": "^5.3.0",
+        "@teamnumio/zksync": "0.0.28",
+        "dotenv": "^8.2.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "esm": "^3.2.25",
+        "ethers": "^5.3.0",
+        "lint-staged": "^10.5.2",
+        "react-native": "^0.64.1",
+        "ts-transformer-keys": "^0.4.3",
+        "zksync": "^0.10.9",
+        "zksync-crypto": "^0.5.4"
+    },
+    "deprecated": false,
+    "description": "Integrates ZKSYNC server with Numio Pay App",
+    "license": "ISC",
+    "main": "index.js",
+    "name": "@teamnumio/numio-zksync-api",
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/TeamNumio"
+    },
+    "scripts": {
+        "transferToken": "node utils/transferToken.js",
+        "build": "npm run lint && tsc",
+        "test": "node --trace-exit --trace-warnings node_modules/mocha/bin/_mocha --full-trace --allow-uncaught test/1_basic_ci.js",
+        "ci": "npm run lint && tsc && mocha --colors -b test/basicCI/*",
+        "ci_test": "echo Tests Have been disabled# npm run ci_lint && tsc && mocha -b test/*ci.js",
+        "testjs": "node --experimental-modules node_modules/mocha/bin/_mocha tests/*.js",
+        "tsdoc": "tsdoc",
+        "typedoc": "typedoc --plugin typedoc-plugin-markdown",
+        "lint": "eslint '{src/*,test/*}.{js,ts}' --quiet --fix --ext .js,.ts"
+    },
+    "version": "1.0.32",
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "src/*.ts": [
+            "eslint --quiet --fix"
+        ],
+        "test/*.js": [
+            "eslint --quiet --fix"
+        ]
+    },
+    "react-native": {
+        "./node_modules/zksync/build/index.d.ts": "./node_modules/@teamnumio/zksync/build/index.d.ts"
+    },
+    "yalcSig": "45d4ffd87692e0187cc7991cd58db2fd"
+}
